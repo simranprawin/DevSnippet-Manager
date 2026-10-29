@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevSnippet Manager</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div>
+      <h1>DevSnippet Manager</h1>
+      <p>Save, organize, and reuse your favorite code snippets.</p>
+    </div>
+
+    <button id="themeBtn" class="theme-btn">🌙</button>
+  </header>
+
+  <main class="container">
+    <section class="stats">
+      <div class="stat-card">
+        <span>Total Snippets</span>
+        <strong id="totalSnippets">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <span>Favorites</span>
+        <strong id="totalFavorites">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <span>Languages</span>
+        <strong id="totalLanguages">0</strong>
+      </div>
+    </section>
+
+    <section class="editor-card">
+      <div class="section-title">
+        <h2 id="formTitle">Add New Snippet</h2>
+        <button id="cancelEditBtn" class="cancel-btn hidden">
+          Cancel Edit
+        </button>
+      </div>
+
+      <form id="snippetForm">
+        <input
+          type="text"
+          id="snippetTitle"
+          placeholder="Snippet title"
+          required
+        />
+
+        <select id="snippetLanguage" required>
+          <option value="">Select language</option>
+          <option value="javascript">JavaScript</option>
+          <option value="python">Python</option>
+          <option value="html">HTML</option>
+          <option value="css">CSS</option>
+          <option value="sql">SQL</option>
+          <option value="java">Java</option>
+          <option value="cpp">C++</option>
+          <option value="bash">Bash</option>
+          <option value="json">JSON</option>
+        </select>
+
+        <input
+          type="text"
+          id="snippetTags"
+          placeholder="Tags separated by commas"
+        />
+
+        <textarea
+          id="snippetCode"
+          placeholder="Paste your code here..."
+          required
+        ></textarea>
+
+        <button type="submit" class="save-btn">
+          <span id="saveBtnText">Save Snippet</span>
+        </button>
+      </form>
+    </section>
+
+    <section class="toolbar">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Search snippets..."
+      />
+
+      <select id="filterLanguage">
+        <option value="all">All Languages</option>
+        <option value="javascript">JavaScript</option>
+        <option value="python">Python</option>
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="sql">SQL</option>
+        <option value="java">Java</option>
+        <option value="cpp">C++</option>
+        <option value="bash">Bash</option>
+        <option value="json">JSON</option>
+      </select>
+
+      <button id="favoritesBtn" class="filter-btn">
+        ⭐ Favorites Only
+      </button>
+
+      <button id="exportBtn" class="export-btn">
+        Export JSON
+      </button>
+
+      <label class="import-btn">
+        Import JSON
+        <input type="file" id="importInput" accept=".json" hidden />
+      </label>
+    </section>
+
+    <section>
+      <div id="snippetList" class="snippet-list"></div>
+
+      <p id="emptyMessage" class="empty-message">
+        No snippets found. Add your first code snippet above.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>DevSnippet Manager © 2026</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
